@@ -29,8 +29,10 @@ function App() {
 
   return (
     <div className="App">
+      <nav class="navbar navbar-light bg-dark">
+        <span class="navbar-brand mb-0 h1">Timeline JS Generation Tool</span>
+      </nav>
       <header className="App-header">
-        <p>React Event</p>
         <EventForm addEvent={addEvent} />
         <EventList events={events} removeEvent={removeEvent}/>
       </header>

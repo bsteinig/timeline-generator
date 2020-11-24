@@ -5,28 +5,40 @@ function EventForm({ addEvent }) {
     const [event, setEvent] = useState({
         id: "",
         task: "",
+        description: "",
         completed: false
     });
 
     function handleTaskInputChange(e) {
-        setEvent({ ...event, task: e.target.value });
+        setEvent({ ...event, task: e.target.value});
+    }
+
+    function handleDescInputChange(e) {
+        setEvent({ ...event, description: e.target.value})
     }
 
     function handleSubmit(e) {
         e.preventDefault();
         if (event.task.trim()) {
             addEvent({...event, id: uuidv4() });
-            setEvent({...event, task: event.task});
+            setEvent({...event, task: event.task, description: event.description});
         }
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="Entry-form">
+            <p>Title:  </p>
             <input 
                 name="task"
                 type="text"
                 value={event.task}
                 onChange={handleTaskInputChange}/>
+            <p>Description:   </p>
+            <input 
+                name="description"
+                type="text"
+                value = {event.description}
+                onChange={handleDescInputChange}/>
             <button type="submit" className = "button">Submit</button>
         </form>
     )

@@ -12,12 +12,20 @@
   color: gray;
 }
 
+.Entry-form {
+  display: flex !important;
+  flex-direction: row !important;
+  height: 20px;
+  align-items: baseline;
+  padding: 50px;
+}
+
 .Event-list{
   display: flex !important;
   flex-direction: row !important;
   list-style-type: none;
   background: #E9E9E9;
-  padding: 20px;
+  padding: 30px;
   flex-wrap: wrap;
 }
 
@@ -28,7 +36,15 @@
   margin: 20px;
   padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
+  text-align: left;
+}
+
+.Description {
+  font-size: calc(5px + 1vmin) !important;
+}
+
+h4 {
+  margin: 5px;
 }
 
 ul li {
