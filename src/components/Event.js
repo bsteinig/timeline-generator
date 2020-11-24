@@ -1,4 +1,7 @@
 import React from 'react';
+import Dropdown from 'react-bootstrap/Dropdown'
+import Button from 'react-bootstrap/Button'
+
 
 function Event({ event, removeEvent }){
 
@@ -12,17 +15,14 @@ function Event({ event, removeEvent }){
                     <h4>{event.task}</h4><br/>
                     <p className="Description">{event.description}</p>
             </li>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ...
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-            <button onClick={handleRemoveClick}>X</button>
+            <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic"> ... </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <Dropdown.Item>  <Button onClick={handleRemoveClick}>Delete</Button> </Dropdown.Item>
+                    <Dropdown.Item>  <Button onClick={handleRemoveClick}>Edit</Button> </Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+           
         </div>
     );
 }

@@ -6,7 +6,6 @@ function EventForm({ addEvent }) {
         id: "",
         task: "",
         description: "",
-        completed: false
     });
 
     function handleTaskInputChange(e) {
@@ -22,6 +21,9 @@ function EventForm({ addEvent }) {
         if (event.task.trim()) {
             addEvent({...event, id: uuidv4() });
             setEvent({...event, task: event.task, description: event.description});
+        }else{
+            addEvent({...event, id: uuidv4() });
+            setEvent({...event, task: "", description: ""});
         }
     }
 
