@@ -1,11 +1,4 @@
 
-.wrapper {
-  padding: 5px 20px;
-}
-
-.wrapper fieldset{
-  margin: 20px 0;
-}
 
 
 .App-header {
@@ -13,11 +6,34 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: top;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: gray;
 }
 
+.Event-list{
+  display: flex !important;
+  flex-direction: row !important;
+  list-style-type: none;
+  background: #E9E9E9;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.Event-item{
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+ul li {
+  font-size: calc(10px + 1vmin) !important;
+  padding: 10px;
+}
 
 

@@ -1,46 +1,39 @@
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import EventForm from './components/EventForm';
+import EventList from './components/EventList';
 
-const formReducer = (state, event) => {
-  return {
-    ...state, [event.name]: event.value
-  }
-}
-
+const LOCAL_STORAGE_KEY = "react-event-list_events";
 
 function App() {
-  const [formData, setFormData] = useReducer(formReducer, {});
-  const [submitting, setSubmitting] = useState(false);
-  const handleSubmit = event => {
-    event.preventDefault();
-    setSubmitting(true);
+  const [events, setEvents] = useState([]);
+
+  useEffect( () =>  {
+    const storageEvents = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if(storageEvents) {
+      setEvents(storageEvents);
+    }
+  }, []);
+
+  useEffect( () => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(events));
+  }, [events]);
+
+  function addEvent(event) {
+    setEvents([event, ...events]);
   }
 
-  const handleChange = event => {
-    setFormData({
-      name: event.target.name,
-      value: event.target.value,
-    });
+  function removeEvent(id){
+    setEvents(events.filter(event => event.id !== id));
   }
 
   return (
-    <div className="wrapper">
-      <h1>Timeline Entry Form</h1>
-      { submitting && <div> Submitting Form with: 
-          <ul> 
-            {Object.entries(formData).map(([name,value]) => (
-            <li key={name}><strong>{name}</strong>:{value.toString()}</li>))}
-          </ul>
-        </div>}
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <label>
-            <p>Event Name</p>
-            <input name="name" onChange={handleChange}/>
-          </label>
-        </fieldset>
-        <button type="submit">Submit</button>
-      </form>
+    <div className="App">
+      <header className="App-header">
+        <p>React Event</p>
+        <EventForm addEvent={addEvent} />
+        <EventList events={events} removeEvent={removeEvent}/>
+      </header>
     </div>
   );
 }
