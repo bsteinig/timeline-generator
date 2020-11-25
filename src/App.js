@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import EventForm from './components/EventForm';
 import EventList from './components/EventList';
+import EditEventForm from './components/EditEventForm';
 import Navbar from 'react-bootstrap/Navbar';
 
 const LOCAL_STORAGE_KEY = "react-event-list_events";
@@ -21,12 +22,13 @@ function App() {
   }, [events]);
 
   function addEvent(event) {
-    setEvents([event, ...events]);
+    setEvents([ ...events, event]);
   }
 
   function removeEvent(id){
     setEvents(events.filter(event => event.id !== id));
   }
+
 
   return (
     <div className="App">
@@ -35,7 +37,7 @@ function App() {
       </Navbar>
       <header className="App-header">
         <EventForm addEvent={addEvent} />
-        <EventList events={events} removeEvent={removeEvent}/>
+        <EventList events={events} removeEvent={removeEvent} addEvent={addEvent} />
       </header>
     </div>
   );

@@ -13,11 +13,11 @@
 }
 
 .Entry-form {
+  font-size: calc(1px + 2vmin);
   display: flex !important;
-  flex-direction: row !important;
-  height: 20px;
-  align-items: baseline;
-  padding: 50px;
+  flex-direction: column !important;
+  align-items: left;
+  padding: 20px;
 }
 
 .Event-list{
@@ -50,6 +50,10 @@ h4 {
 ul li {
   font-size: calc(10px + 1vmin) !important;
   padding: 10px;
+}
+
+p {
+  margin-bottom: 0 !important; 
 }
 
 

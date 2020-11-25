@@ -2,7 +2,7 @@ import React from 'react';
 import Event from './Event'; 
 
 
-function EventList({ events, removeEvent }){   
+function EventList({ events, removeEvent, addEvent }){   
     return (
         <ul className="Event-list">
             {events.map(event => (
@@ -10,6 +10,7 @@ function EventList({ events, removeEvent }){
                 key={event.id} 
                 event={event} 
                 removeEvent={removeEvent}
+                addEvent={addEvent}
             />
             ))}
         </ul>

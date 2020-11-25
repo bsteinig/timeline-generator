@@ -35,7 +35,7 @@ function EventForm({ addEvent }) {
                 type="text"
                 value={event.task}
                 onChange={handleTaskInputChange}/>
-            <p>Description:   </p>
+            <br></br><p>Description:   </p>
             <input 
                 name="description"
                 type="text"
