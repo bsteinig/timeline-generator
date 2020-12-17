@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Form from 'react-bootstrap/Form'
+import FormGroup from 'react-bootstrap/Form'
+import Col from 'react-bootstrap/Col'
 
 function EventForm({ addEvent }) {
     const [event, setEvent] = useState({
@@ -28,22 +31,23 @@ function EventForm({ addEvent }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="Entry-form">
-            <p>Title:  </p>
-            <input 
-                name="task"
-                type="text"
-                value={event.task}
-                onChange={handleTaskInputChange}/>
-            <br></br><p>Description:   </p>
-            <input 
-                name="description"
-                type="text"
-                value = {event.description}
-                onChange={handleDescInputChange}/>
-            <button type="submit" className = "button">Submit</button>
-        </form>
+        <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Form.Group as={Form.Row} controlId="titleTextArea">
+                        <Form.Label column sm="2">Title:</Form.Label>
+                        <Col sm="10">
+                        <Form.Control name="title" as="input" value={event.task} onChange={handleTaskInputChange} placeholder="Title" />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Form.Row} controlId="descriptionTextArea">
+                        <Form.Label column>Author:</Form.Label>
+                        <Form.Control name="Author" value={event.description} onChange={handleDescInputChange} placeholder="Author" />
+                    </Form.Group>
+                </FormGroup>
+            </Form>
     )
 }
 
 export default EventForm;
+
+

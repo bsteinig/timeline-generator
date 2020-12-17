@@ -47,9 +47,9 @@ function Event({ event, removeEvent, addEvent }){
                         <Form.Control name="description" value={eventE.description} onChange={handleDescInputChange} as="textarea" rows={3} />
                     </Form.Group>
                 </FormGroup>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" variant="primary">Submit</Button>
             </Form>
-            <Button onClick={handleRemoveClick}>Delete</Button>            
+            <Button onClick={handleRemoveClick}  variant="primary">Delete</Button>            
         </div>
     );
 }

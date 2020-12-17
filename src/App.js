@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import EventForm from './components/EventForm';
 import EventList from './components/EventList';
-import EditEventForm from './components/EditEventForm';
 import Navbar from 'react-bootstrap/Navbar';
 
 const LOCAL_STORAGE_KEY = "react-event-list_events";
@@ -32,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar bg="primary" variant="dark" sticky="top">
+      <Navbar variant="dark" sticky="top">
         <Navbar.Brand>Timeline JS Generation Tool</Navbar.Brand>
       </Navbar>
       <header className="App-header">
